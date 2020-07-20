@@ -1,0 +1,245 @@
+<!-- <!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Getting Started With Artificial Intelligence</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,400i,500i,600,900&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: #ECF0F9;
+                margin: 0;
+            }
+
+            #top-bar {
+                background-color: white;
+                position: fixed;
+                top: 0;
+                left: 0;
+                align-items: center;
+                box-sizing: border-box;
+                box-shadow: 0 1px 1px #ccc;
+                width: 100%;
+                height: 80px;
+                z-index: 90;
+                padding: 1em 4.875em;
+                display: flex;
+                justify-content: left;
+            }
+
+            .logo-bar {
+                cursor: pointer;
+            }
+
+            .logo {
+                background-image: linear-gradient(269deg,#0048ff,#0096ff), linear-gradient(#000,#000);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: block;
+                font-family: "Raleway";
+                font-size: 32px;
+                font-weight: 900;
+                height: 34px;
+                letter-spacing: -0.9px;
+                color: rgb(0, 132, 255);
+            }
+
+            .logo-bar p {
+                font-family: Raleway,sans-serif;
+                font-size: 1em;
+                font-weight: 600;
+                font-style: italic;
+                font-stretch: normal;
+                line-height: .8;
+                letter-spacing: .9px;
+                margin: 0;
+            }
+
+            #article {
+                width: 938px;
+                height: 3024px;
+                background-color: white;
+                border-radius: 5px;
+                box-shadow: 0 5px 30px 0 rgba(0,0,0,.1);
+                border: 1px solid rgba(0,168,255,.3);
+                margin: 120px auto;
+                margin-bottom: 60px;
+            }
+
+            #article img {
+                width: 100%;
+                height: 534px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+            .blog-meta {
+                width: 100%;
+                height: 108px;
+                padding: 12px 96px 0px 96px;
+            }
+
+            .blog-meta h1 {
+                font-family: "Raleway";
+                font-size: 28.8px;
+                font-weight: 600;
+                letter-spacing: -1.5px;
+            }
+
+            .author {
+                font-family: 'Raleway';
+                font-size: 15px;
+                font-weight: 500;
+                font-style: italic;
+                color: #0096ff;
+                margin-top: 6px;
+            }
+
+            .date {
+                font-family: "Roboto";
+                font-size: 15px;
+                font-weight: 400;
+                font-style: normal;
+                color: #000000;
+            }
+
+            .blog-content {
+                padding: 2em 6em;
+                padding-top: 0px;
+                overflow: hidden;
+            }
+
+            .blog-content p {
+                font-family: "Raleway";
+                font-size: 15px;
+                line-height: 1.5em;
+                letter-spacing: .2px;
+            }
+
+            strong {
+                font-weight: 600;
+            }
+
+            hr {
+                margin: 0%;
+            }
+
+            .author-details {
+                display: inline-flex;
+                width: 100%;
+                height: 160px;
+                padding: 2em 6em;
+                padding-bottom: 0px;
+            }
+
+            .author-pic {
+                width: 128px;
+                height: 128px;
+                margin-right: 32px;
+            }
+
+            .author-info {
+                height: 128px;
+                padding-top: 36px;
+            }
+
+            .author-info p {
+                margin: 0%;
+                padding: 4px 0px;
+            }
+
+            .author-name {
+                color: rgb(0, 150, 255);;
+                font-family: "Raleway";
+                font-size: 16px;
+                font-weight: 500;
+                font-style: italic;
+            }
+
+            .author-bio {
+                font-family: "Raleway";
+                font-size: 15px;
+                line-height: 1.5em;
+                letter-spacing: .2px;
+            }
+
+            .tag-container {
+                padding-bottom: 2em;
+                padding-left: 6em;
+                padding-right: 6em;
+            }
+
+            .tag-container button {
+                display: inline-block;
+                color: rgb(0, 132, 255);
+                border: 1px solid rgb(0, 132, 255);
+                border-radius: 20px;
+                background-color: transparent;
+                font-family: "Raleway";
+                font-size: 14px;
+                cursor: pointer;
+                min-width: 50px;
+                padding: 6px 14px;
+                margin: 5px;
+            }
+
+            #bottom-bar {
+                background-color: #172146;
+                bottom: 0;
+                width: 100%;
+                height: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="top-bar">
+            <div class="logo-bar">
+                <div class="logo">EDYODA</div>
+                <p>Stories</p>
+            </div>
+        </div> -->
+
+        
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'blog/css/post-details.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+        <div id="article">
+            {% if post.image %}
+                        <img class="card-image-top" src="{{ post.image.url }}" alt="Card image cap">
+                    {% else %}
+                        <img class="card-image-top" src="https://edyoda.s3.amazonaws.com/media/blog-images/edyoda_WxvDSK1.jpg" alt="Getting Started With Artificial Intelligence">
+                    {% endif %}
+            <!--<img src="https://edyoda.s3.amazonaws.com/media/blog-images/learn-artificial-intelligence_E1bep5u.jpeg" alt="Getting Started With Artificial Intelligence" />
+            --><div class="blog-meta">
+                <h1>{{ post.title }}</h1>
+                <p class="author"> Shahbaz Sayyed <span class ="date"> | 08 Jul 2019</span></p>
+            </div>
+            <div class="blog-content">
+                <p>{{ post.content }}</p>
+                
+            </div>
+            <hr>
+            <div class="author-details">
+                <div class="author-pic">
+                    <img style="width: 100%; height: 100%;" src="https://edyoda.s3.amazonaws.com/media/profile-picture/0.png" alt="" />
+                </div>
+                <div class="author-info">
+                    <p class="author-name">Shahbaz Sayyed</p>
+                    <p class="author-bio">Edyoda is an open platform to learn technology and share tech content</p>
+                </div>
+            </div>
+            <div class="tag-container">
+                <button>Artificial Intelligence</button>
+            </div>
+        </div>
+{% endblock %}
+        <!-- <div id="bottom-bar">
+        </div>
+    </body>
+</html> -->

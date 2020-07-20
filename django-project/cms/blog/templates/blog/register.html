@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p class ="form-label">{{ form.username.label }}</p>
+        <p class ="form-field">{{ form.username }} </p>
+        <p class ="form-error">{{ form.username.errors }}</p>
+        <!-- {% for x in form %}
+            <p>{{ x.label }}</p>
+            <p>{{ x }}</p>
+            <p>{{ x.errors }}</p>
+             -->
+        <!-- {% endfor %} -->
+        <!-- {{ form.as_p }} -->
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
+
+<!-- 
+label 
+field 
+errors 
+help_text -->
+
+<!-- Username : 
+    @ and _ 
+
+Passowrd :
+    min and max 
+    1 Upper 
+    1 lower case 
+    1 special char 
+    1 number 
+
+Password should match with confirm password =>  -->
+

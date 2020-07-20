@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        {{ form.non_field_errors }}
+        {% for x in form %}
+            <p>{{ x.label }}</p>
+            <p>{{ x }}</p>
+            <p>{{ x.errors }}</p>        
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

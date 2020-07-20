@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Features -->
+<!-- Filtering Options starts here-->
+<div class="container py-2">
+    <i class="fas fa-filter filter-ico">
+        <span class="h5"> Filter by category </span>
+    </i>
+</div>
+<div class="container">
+    {% for cat in categories %}
+    <a href="{% url 'category' cat.id %}" class="text-decoration-none">
+        <button type="button" class="btn btn-primary">{{ cat.name }} </button>
+    </a>
+    {% endfor %}
+    <a href="{% url 'home' %}" class="text-decoration-none">
+        <span>
+            <button type="button" class="btn btn-primary"> Reset </button>
+        </span>
+    </a>
+</div>
+<form class="form-inline col-md-4 mt-2 ml-auto" action="{% url 'search' %}" method="GET">
+    <div class="input-group">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search", value="{{ request.GET.search }}">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+</form>
+<div class="container my-2">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                {% if post.image %}
+                <img class="card-img-top" src="{{ post.images.url }}" height="200px" alt="">
+                {% else %}
+                <img class="card-img-top" src="http://placehold.it/500x325" height="200px" alt="">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: left;">{{ post.title }}</h5>
+                    <p class="card-text" style="text-align: left;">{{ post.content | safe | truncatechars:100}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'blog' post.slug %}" class="btn btn-link text-decoration-none">Find Out More!</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- /.row -->
+</div>
+{% endblock content %}

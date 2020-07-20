@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="jumbotron">
+    <p class="lead">You have been successfully logged out. Would like to login again ? </p>
+    <a class="nav-link" href="{% url 'login' %}">Log in </a>
+</div>
+
+{% endblock content %}
